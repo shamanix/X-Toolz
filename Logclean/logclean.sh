@@ -1,22 +1,68 @@
-#!/bin/bash
+clear console
+  echo -e "\033[34;0;32mSollen alle logs geleert werden? \033[0m" 
+	echo -e "\033[40;0;31mIhre Antwort, n/j: \033[0m"
+	read answer
+	echo Ihre Antwort war: $answer
+	if [ "$answer" != "n" ]
+  	then
+		for logs in `find /var/log -type f` 
+		do echo "Datei: " $logs " geleert" && > $logs 
+		done
+  		else echo Ok, weiter geht´s
+		fi
+clear console
+  echo -e "\033[34;0;32mSollen alle archivierten logs gelöscht werden? \033[0m" 
+	echo -e "\033[40;0;31mIhre Antwort, n/j: \033[0m"
+	read answer
+	echo Ihre Antwort war: $answer
+	if [ "$answer" != "n" ]
+		then
+		for logs2 in `find /var/log -name "*.gz"` 
+		do echo "Datei: " $logs2 " gelöscht" && rm -f $logs2 
+		done	
+		for logs3 in `find /var/log -name "*.[0123456789]"` 
+		do echo "Datei: " $logs3 " gelöscht" && rm -f $logs3
+		done
+  	else echo Ok, weiter geht´s
+	fi
+clear console
+echo -e "\033[34;0;32mSollen die Bash History gelöscht werden? \033[0m" 
+	echo -e "\033[40;0;31mIhre Antwort, n/j: \033[0m"
+	read answer
+	echo Ihre Antwort war: $answer
+	if [ "$answer" != "n" ]
+		then
+		echo > /root/.bash_history 
+		echo "Bash History geleert"
+  	else echo Ok, weiter geht´s
+	fi
+clear console
+echo -e "\033[34;0;32mSollen der DJIGZO Log geleert werden? \033[0m" 
+	echo -e "\033[40;0;31mIhre Antwort, n/j: \033[0m"
+	read answer
+	echo Ihre Antwort war: $answer
+	if [ "$answer" != "n" ]
+		then
+		echo > /usr/share/djigzo/logs/james.wrapper.log
+		echo "DJIGZO Log geleert"
+  	else echo Ok, weiter geht´s
+	fi
+clear console
+echo
+echo
+echo
+echo -e "\033[34;0;32mProgramm löscht sich jetzt selbst! \033[0m"
+echo
+echo 3
+sleep 1
+echo
+echo 2
+sleep 1
+echo
+echo 1
+sleep 1
+echo
+echo
 
-for logs in `find /var/log -type f` 
-	do echo "Datei: " $logs " geleert" && > $logs 
-done
-for logs2 in `find /var/log -name "*.gz"` 
-	do echo "Datei: " $logs2 " gelöscht" && rm -f $logs2 
-	
-for logs3 in `find /var/log -name "*.0"` 
-	do echo "Datei: " $logs3 " gelöscht" && rm -f $logs3 
-
-	for logs4 in `find /var/log -name "*.1"` 
-	do echo "Datei: " $logs4 " gelöscht" && rm -f $logs4
-	
-for logs5 in `find /var/log -name "*.2"` 
-	do echo "Datei: " $logs5 " gelöscht" && rm -f $logs5 
-
-	
-echo > /root/.bash_history && echo "Bash History geleert"
-echo > /usr/share/djigzo/logs/james.wrapper.log && echo "DJIGZO Log geleert"
-
+rm -f $0
 
