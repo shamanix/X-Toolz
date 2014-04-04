@@ -1,5 +1,11 @@
+#!/bin/bash
+
 clear console
-  echo -e "\033[34;0;32mSollen alle logs geleert werden? \033[0m" 
+echo
+echo
+echo
+
+echo -e "\033[34;0;32mSollen alle logs in /var/log geleert werden? \033[0m" 
 	echo -e "\033[40;0;31mIhre Antwort, n/j: \033[0m"
 	read answer
 	echo Ihre Antwort war: $answer
@@ -11,7 +17,11 @@ clear console
   		else echo Ok, weiter geht´s
 		fi
 clear console
-  echo -e "\033[34;0;32mSollen alle archivierten logs gelöscht werden? \033[0m" 
+echo
+echo
+echo
+echo
+  echo -e "\033[34;0;32mSollen alle archivierten logs in /var/log gelöscht werden? \033[0m" 
 	echo -e "\033[40;0;31mIhre Antwort, n/j: \033[0m"
 	read answer
 	echo Ihre Antwort war: $answer
@@ -26,7 +36,10 @@ clear console
   	else echo Ok, weiter geht´s
 	fi
 clear console
-echo -e "\033[34;0;32mSollen die Bash History gelöscht werden? \033[0m" 
+echo
+echo
+echo
+echo -e "\033[34;0;32mSollen die Bash History von ROOT gelöscht werden? \033[0m" 
 	echo -e "\033[40;0;31mIhre Antwort, n/j: \033[0m"
 	read answer
 	echo Ihre Antwort war: $answer
@@ -37,6 +50,9 @@ echo -e "\033[34;0;32mSollen die Bash History gelöscht werden? \033[0m"
   	else echo Ok, weiter geht´s
 	fi
 clear console
+echo
+echo
+echo
 echo -e "\033[34;0;32mSollen der DJIGZO Log geleert werden? \033[0m" 
 	echo -e "\033[40;0;31mIhre Antwort, n/j: \033[0m"
 	read answer
